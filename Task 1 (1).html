@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<style>
+html, body{
+    width: 50%;
+    margin: 0 auto;
+    font-family: "Times New Roman", Times, serif;
+  background-image: url('https://public-assets.toggl.com/b/static/fa7f14f4c98575425764d3cbce264924/44b13/article-free-to-do-list-template.jpg') ;
+  background-size: 100% 100%
+}
+.container{
+    width: 360px;
+
+}
+#inputfield {
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+    outline: none;
+    font-size: 25px;
+    vertical-align: middle;
+
+}
+#Addtodo{
+    width: 50px;
+    height: 56px;
+    border: 2px solid black;
+    font-size: 50px;
+    vertical-align: middle;
+
+}
+
+.to-dos{
+    margin-top: 50 px;
+}
+
+.paragraph-styling{
+    margin: 0;
+    cursor: pointer;
+    font-size: 250 px;
+}
+</style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.5">
+        <link rel="stylesheet" href="index.css">
+        <title>TO DO LIST</title>
+    
+    </head>
+    <body>
+        <h1>TO DO LIST</h1>
+        <div class="container">
+            <input id="inputfield" type="text"><button id ="Addtodo">+</button>
+        <div class ="to-dos" id="todocontainer">
+        </div>
+        </div>
+        <script src="index.js"></script>    
+<script>
+let addtodobutton = document.getElementById('Addtodo');
+let todocontainer = document.getElementById('todocontainer');
+let inputfield = document.getElementById('inputfield');
+
+addtodobutton.addEventListener('click',function(){
+    var paragraph = document.createElement('p');
+    paragraph.classList.add('paragraph-styling');
+    paragraph.innerText =inputfield.value;
+    todocontainer.appendChild(paragraph);
+    inputfield.value= "";
+    paragraph.addEventListener('click',function(){
+        paragraph.style.textDecoration= "line-through" ;
+
+    })
+    paragraph.addEventListener('dblclick',function(){
+        todocontainer.removeChild(paragraph);
+
+    })
+
+})
+</script>
+
+    </body>
+</html>
